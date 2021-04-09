@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     private Renderer rend;
 
     public Color turnTo = Color.white;
+
+    public GameObject gameManager;
     void Start()
     {
         health = maxHealth;
@@ -84,6 +86,7 @@ public class PlayerController : MonoBehaviour
         }
         if(health<= 0)
         {
+            gameManager.GetComponent<SpawnEntity>().playerDead = true;
             Destroy(gameObject);
         }
 

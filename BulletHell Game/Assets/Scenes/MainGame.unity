@@ -547,6 +547,11 @@ Transform:
   m_Father: {fileID: 520447284}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!1 &1483194475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 245775362166747709, guid: 0f5f00fb594ce9d42b2721c76233b186, type: 3}
+  m_PrefabInstance: {fileID: 245775361019173803}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1823894109
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +635,14 @@ MonoBehaviour:
   countdown: 0
   maxCountDown: 2
   enemyForce: 3
+  maxEnemyForce: 10
+  enemyForceIncrease: 0.1
+  timer: 0
+  timeInterval: 5
+  playerSpeedIncrease: 0.1
+  maxPlayerSpeed: 10
+  player: {fileID: 1483194475}
+  playerDead: 0
 --- !u!4 &2096972907
 Transform:
   m_ObjectHideFlags: 0
@@ -699,6 +712,14 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 245775362166747699, guid: 0f5f00fb594ce9d42b2721c76233b186, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 245775362166747699, guid: 0f5f00fb594ce9d42b2721c76233b186, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2096972905}
     - target: {fileID: 245775362166747709, guid: 0f5f00fb594ce9d42b2721c76233b186, type: 3}
       propertyPath: m_Name
       value: Player
