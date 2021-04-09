@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public Camera cam;
 
     Vector2 mouseAim;
-
+   
     float horizontal;
     float vertical;
 
@@ -30,10 +30,20 @@ public class PlayerController : MonoBehaviour
     public Color turnTo = Color.white;
 
     public GameObject gameManager;
+
+    public TrailRenderer trail;
+
+    public GameObject redTrail;
+    public GameObject greenTrail;
+    public GameObject blueTrail;
+
+
     void Start()
     {
         health = maxHealth;
         rend = GetComponent<Renderer>();
+
+        trail = GetComponent<TrailRenderer>();
     }
 
 
@@ -65,16 +75,30 @@ public class PlayerController : MonoBehaviour
             isRed = true;
             isBlue = false;
             isGreen = false;
+            trail.startColor = Color.red;
+            trail.endColor = Color.red;
+
             turnTo = Color.red;
             rend.material.color = turnTo;
+
+            redTrail.SetActive(true);
+            greenTrail.SetActive(false);
+            blueTrail.SetActive(false);
+           
         }
         if (colourState == 2)
         {
             isRed = false;
             isBlue = true;
             isGreen = false;
+            trail.startColor = Color.blue;
+            trail.endColor = Color.blue;
             turnTo = Color.blue;
             rend.material.color = turnTo;
+
+            redTrail.SetActive(false);
+            greenTrail.SetActive(false);
+            blueTrail.SetActive(true);
         }
         if (colourState == 3)
         {
@@ -82,7 +106,12 @@ public class PlayerController : MonoBehaviour
             isBlue = false;
             isGreen = true;
             turnTo = Color.green;
+            trail.startColor = Color.green;
+            trail.endColor = Color.green;
             rend.material.color = turnTo;
+            redTrail.SetActive(false);
+            greenTrail.SetActive(true);
+            blueTrail.SetActive(false);
         }
         if(health<= 0)
         {
@@ -111,5 +140,13 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "CloseCall")
+        {
+            gameManager.GetComponent<ScoreSystem>().multiplier += 1;
+        }
     }
 }

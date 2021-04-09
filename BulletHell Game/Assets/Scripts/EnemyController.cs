@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     GameObject player;
+
     public int dmg;
     void Start()
     {
