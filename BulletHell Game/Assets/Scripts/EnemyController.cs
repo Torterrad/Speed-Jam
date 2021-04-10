@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     GameObject player;
 
-    public float timeUntilDeath;
+    
     public int dmg;
     void Start()
     {

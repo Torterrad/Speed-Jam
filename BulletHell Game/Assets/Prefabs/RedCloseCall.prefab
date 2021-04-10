@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: -7737038671249165378}
   m_Layer: 0
   m_Name: RedCloseCall
-  m_TagString: CloseCall
+  m_TagString: RedCloseCall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

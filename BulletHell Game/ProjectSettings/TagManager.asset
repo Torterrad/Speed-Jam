@@ -9,6 +9,9 @@ TagManager:
   - GreenEnemy
   - Enemy
   - CloseCall
+  - BlueCloseCall
+  - RedCloseCall
+  - GreenCloseCall
   layers:
   - Default
   - TransparentFX

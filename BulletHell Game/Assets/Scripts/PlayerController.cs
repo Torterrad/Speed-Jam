@@ -207,6 +207,24 @@ public class PlayerController : MonoBehaviour
 
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
+        if (other.tag == "RedCloseCall"&& this.isRed == false)
+        {
+            gameManager.GetComponent<ScoreSystem>().multiplier += 1;
+
+            gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
+        }
+        if (other.tag == "GreenCloseCall" && this.isGreen == false)
+        {
+            gameManager.GetComponent<ScoreSystem>().multiplier += 1;
+
+            gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
+        }
+        if (other.tag == "BlueCloseCall" && this.isBlue == false)
+        {
+            gameManager.GetComponent<ScoreSystem>().multiplier += 1;
+
+            gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
+        }
     }
     IEnumerator die()
     {
