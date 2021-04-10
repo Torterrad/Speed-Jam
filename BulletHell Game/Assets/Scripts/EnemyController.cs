@@ -6,10 +6,15 @@ public class EnemyController : MonoBehaviour
 {
     GameObject player;
 
+    public float timeUntilDeath;
     public int dmg;
     void Start()
     {
         player = GameObject.Find("Player");
+    }
+    private void Update()
+    {
+        
     }
 
     // Update is called once per frame
