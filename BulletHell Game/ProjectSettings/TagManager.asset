@@ -12,6 +12,7 @@ TagManager:
   - BlueCloseCall
   - RedCloseCall
   - GreenCloseCall
+  - Turn
   layers:
   - Default
   - TransparentFX

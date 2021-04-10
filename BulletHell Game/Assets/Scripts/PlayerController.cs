@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public Camera cam;
+    //public Camera cam;
 
     Vector2 mouseAim;
    
@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour
     public float countDown = 1f;
     public float minimumCountDown = 0f ;
 
+    public Animator nearMissText;
+    public Animation anim;
+
 
     void Start()
     {
@@ -60,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        mouseAim = cam.ScreenToWorldPoint(Input.mousePosition);
+       // mouseAim = cam.ScreenToWorldPoint(Input.mousePosition);
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
@@ -185,13 +188,13 @@ public class PlayerController : MonoBehaviour
 
     public void HandleMovement()
     {
-        Vector2 lookDirection = mouseAim - rb.position;
+        //Vector2 lookDirection = mouseAim - rb.position;
 
         rb.velocity = new Vector2(horizontal * speed, vertical * speed);
 
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
+       // float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
 
-        rb.rotation = angle;
+       // rb.rotation = angle;
     }
 
     public void TakeDamage(float damage)
@@ -204,25 +207,25 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "CloseCall")
         {
             gameManager.GetComponent<ScoreSystem>().multiplier += 1;
-
+            nearMissText.Play("FadeIn");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
         if (other.tag == "RedCloseCall"&& this.isRed == false)
         {
             gameManager.GetComponent<ScoreSystem>().multiplier += 1;
-
+            nearMissText.Play("FadeIn");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
         if (other.tag == "GreenCloseCall" && this.isGreen == false)
         {
             gameManager.GetComponent<ScoreSystem>().multiplier += 1;
-
+            nearMissText.Play("FadeIn");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
         if (other.tag == "BlueCloseCall" && this.isBlue == false)
         {
             gameManager.GetComponent<ScoreSystem>().multiplier += 1;
-
+            nearMissText.Play("FadeIn");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
     }
