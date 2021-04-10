@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float maxHealth;
 
     public float speed = 2f;
+    public float duration = 1f;
 
     public Rigidbody2D rb;
 
@@ -38,12 +39,22 @@ public class PlayerController : MonoBehaviour
     public GameObject blueTrail;
 
 
+    public ParticleSystem redDeath;
+    public ParticleSystem greenDeath;
+    public ParticleSystem blueDeath;
+
+    public SpriteRenderer sRenderer;
+    public float countDown = 1f;
+    public float minimumCountDown = 0f ;
+
+
     void Start()
     {
         health = maxHealth;
         rend = GetComponent<Renderer>();
 
         trail = GetComponent<TrailRenderer>();
+        
     }
 
 
@@ -116,7 +127,53 @@ public class PlayerController : MonoBehaviour
         if(health<= 0)
         {
             gameManager.GetComponent<SpawnEntity>().playerDead = true;
-            Destroy(gameObject);
+            if (isRed)
+            {
+                countDown -= Time.deltaTime;
+                if (countDown >= minimumCountDown)
+                {
+                    Destroy(redTrail);
+                    GetComponent<SpriteRenderer>().enabled = false;
+                    StartCoroutine(die());
+                }
+                if(countDown<= minimumCountDown)
+                {
+                    redDeath.Stop();
+                }
+
+                
+            }
+            if (isGreen)
+            {
+
+                countDown -= Time.deltaTime;
+                if (countDown >= minimumCountDown)
+                {
+                    Destroy(greenTrail);
+                    GetComponent<SpriteRenderer>().enabled = false;
+                    StartCoroutine(die());
+                }
+                if (countDown <= minimumCountDown)
+                {
+                    greenDeath.Stop();
+                }
+            }
+            if (isBlue)
+            {
+                countDown -= Time.deltaTime;
+                if (countDown >= minimumCountDown)
+                {
+                    Destroy(blueTrail);
+                    GetComponent<SpriteRenderer>().enabled = false;
+                    StartCoroutine(die());
+                }
+                if (countDown <= minimumCountDown)
+                {
+                    blueDeath.Stop();
+                }
+
+            }
+            //gameObject.SetActive(false);
         }
 
 
@@ -147,6 +204,36 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "CloseCall")
         {
             gameManager.GetComponent<ScoreSystem>().multiplier += 1;
+
+            gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
+    }
+    IEnumerator die()
+    {
+        if (isRed)
+        {
+            Destroy(redTrail);
+            redDeath.Play();
+            
+        }
+        if (isGreen)
+        {
+            Destroy(greenTrail);
+            greenDeath.Play();
+            
+        }
+        if (isBlue)
+        {
+            Destroy(blueTrail);
+            blueDeath.Play();
+            
+        }
+        yield return new WaitForSeconds(duration);
+
+        greenDeath.Stop();
+        blueDeath.Stop();
+        redDeath.Stop();
+        Destroy(gameObject);
+
     }
 }
