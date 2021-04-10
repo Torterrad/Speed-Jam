@@ -35082,7 +35082,7 @@ MonoBehaviour:
   maxCountDown: 2
   enemyForce: 3
   maxEnemyForce: 10
-  enemyForceIncrease: 0.1
+  enemyForceIncrease: 0.5
   timer: 0
   timeInterval: 5
   playerSpeedIncrease: 0.1

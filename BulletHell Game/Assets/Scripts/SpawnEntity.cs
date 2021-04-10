@@ -68,7 +68,7 @@ public class SpawnEntity : MonoBehaviour
         Transform sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         GameObject enemy = enemyTypes[Random.Range(0, spawnPoints.Length)];
 
-       GameObject newEnemy = Instantiate(enemy, sp.position, sp.rotation);
+       GameObject newEnemy = Instantiate(enemy, sp.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));
 
         Rigidbody2D rb = newEnemy.GetComponent<Rigidbody2D>();
         rb.AddForce(sp.up * enemyForce, ForceMode2D.Impulse);
