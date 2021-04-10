@@ -35075,6 +35075,9 @@ MonoBehaviour:
   - {fileID: 3538510946245823277, guid: f0b52448a5d3a9c4a99c0be890b45901, type: 3}
   - {fileID: 7617593131756208848, guid: 626ecc96c63a06a4191d3780690212ec, type: 3}
   - {fileID: 7617593131756208848, guid: 52bc6fb23c4ff384dab715f7a83895d8, type: 3}
+  - {fileID: 3538510946245823277, guid: 7e4488899c888064dbfde37d1797dd7f, type: 3}
+  - {fileID: 3538510946245823277, guid: 684a67155f23a2c4eb3d236adbaa8318, type: 3}
+  - {fileID: 3538510946245823277, guid: 3d93bc0e0d9cb3349a22b0354c3280d8, type: 3}
   countdown: 0
   maxCountDown: 2
   enemyForce: 3
