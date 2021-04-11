@@ -200,6 +200,7 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        ScreenShakeController.instance.StartShake(.3f, .5f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -9,6 +9,13 @@ public class SpawnEntity : MonoBehaviour
     public float countdown = 0;
     public float maxCountDown;
 
+    public float randomMinimumValue;
+    public float randomMaximumValue;
+
+    public float randomMinimumValueLock;
+    public float randomMaximumValueLock;
+
+
     public float enemyForce;
     public float maxEnemyForce;
     public float enemyForceIncrease;
@@ -22,6 +29,10 @@ public class SpawnEntity : MonoBehaviour
     public GameObject player;
     public bool playerDead = false;
 
+    private void Start()
+    {
+        maxCountDown = Random.Range(randomMinimumValue,randomMaximumValue);
+    }
     private void Update()
     {
         countdown += Time.deltaTime;
@@ -31,6 +42,7 @@ public class SpawnEntity : MonoBehaviour
         if (countdown>= maxCountDown)
         {
             Spawn();
+            maxCountDown = Random.Range(randomMinimumValue, randomMaximumValue);
             countdown = 0;
         }
         if (timer >= 5)
@@ -38,6 +50,8 @@ public class SpawnEntity : MonoBehaviour
             if (playerDead)
             {
                 enemyForce += enemyForceIncrease;
+                randomMinimumValue -= 0.01f;
+                randomMaximumValue -= 0.01f;
             }
 
             else
@@ -61,12 +75,20 @@ public class SpawnEntity : MonoBehaviour
         {
             player.GetComponent<PlayerController>().speed = maxPlayerSpeed;
         }
+        if (randomMaximumValue <= randomMaximumValueLock)
+        {
+            randomMaximumValue = randomMaximumValueLock;
+        }
+        if (randomMinimumValue <= randomMinimumValueLock)
+        {
+            randomMinimumValue = randomMinimumValueLock;
+        }
     }
 
     void Spawn()
     {
         Transform sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        GameObject enemy = enemyTypes[Random.Range(0, spawnPoints.Length)];
+        GameObject enemy = enemyTypes[Random.Range(0, enemyTypes.Length)];
 
        GameObject newEnemy = Instantiate(enemy, sp.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));
 
