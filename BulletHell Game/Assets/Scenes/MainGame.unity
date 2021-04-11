@@ -148,8 +148,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80934998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.3887, y: 0, z: 0}
-  m_LocalScale: {x: 11.7773, y: 1, z: 1}
+  m_LocalPosition: {x: 7.0964, y: 0, z: 0}
+  m_LocalScale: {x: 15.192717, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1818918418}
   m_RootOrder: 0
@@ -890,8 +890,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598978731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.527, y: 0, z: 0}
-  m_LocalScale: {x: 6.054, y: 1, z: 1}
+  m_LocalPosition: {x: 4.4826, y: 0, z: 0}
+  m_LocalScale: {x: 9.964884, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 537300703}
   m_RootOrder: 0
@@ -972,8 +972,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634312850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6315, y: 0, z: 0}
-  m_LocalScale: {x: 8.263, y: 1, z: 1}
+  m_LocalPosition: {x: -7.9834, y: 0, z: 0}
+  m_LocalScale: {x: 16.966415, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 526959397}
   m_RootOrder: 0
@@ -6664,6 +6664,12 @@ MonoBehaviour:
   - {fileID: 3538510946245823277, guid: 5159df50ec86c554e8fd9b6bc6b4cac4, type: 3}
   - {fileID: 3538510946245823277, guid: d81af2231686bfe438813879e606e732, type: 3}
   - {fileID: 3538510946245823277, guid: b9a26777a9ff02e459760c043fa3c6a7, type: 3}
+  - {fileID: 7617593131756208848, guid: 67d2799901db8184d9b70044c0be54bf, type: 3}
+  - {fileID: 7617593131756208848, guid: 03b9d49bf823a8f47952c7c0ff4bc14d, type: 3}
+  - {fileID: 7617593131756208848, guid: 1870755382b278146a549a66f4483284, type: 3}
+  - {fileID: 7617593131756208848, guid: b119d43e409d2bd4f8f7b7694c1fc77d, type: 3}
+  - {fileID: 7617593131756208848, guid: 125aa78e85333514b9104aa4130d16a6, type: 3}
+  - {fileID: 7617593131756208848, guid: 71e03bae3d04ab24b95b5a29a7f4ced9, type: 3}
   countdown: 0
   maxCountDown: 2
   randomMinimumValue: 1
@@ -6724,6 +6730,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2824249603581707284, guid: 49f2df9a25cba3a40a16b50a7804c063, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2824249603581707285, guid: 49f2df9a25cba3a40a16b50a7804c063, type: 3}
       propertyPath: gameManager
       value: 
