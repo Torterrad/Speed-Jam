@@ -15,6 +15,8 @@ public class SpawnEntity : MonoBehaviour
     public float randomMinimumValueLock;
     public float randomMaximumValueLock;
 
+    public bool minValueReached = false;
+    public bool maxValueReached = false;
 
     public float enemyForce;
     public float maxEnemyForce;
@@ -43,15 +45,23 @@ public class SpawnEntity : MonoBehaviour
         {
             Spawn();
             maxCountDown = Random.Range(randomMinimumValue, randomMaximumValue);
+            
             countdown = 0;
         }
         if (timer >= 5)
         {
+            if (!minValueReached)
+            {
+                randomMinimumValue -= 0.1f;
+            }
+            if (!maxValueReached)
+            {
+                randomMaximumValue -= 0.1f;
+            }
             if (playerDead)
             {
                 enemyForce += enemyForceIncrease;
-                randomMinimumValue -= 0.01f;
-                randomMaximumValue -= 0.01f;
+                
             }
 
             else
@@ -77,10 +87,12 @@ public class SpawnEntity : MonoBehaviour
         }
         if (randomMaximumValue <= randomMaximumValueLock)
         {
+            maxValueReached = true;
             randomMaximumValue = randomMaximumValueLock;
         }
         if (randomMinimumValue <= randomMinimumValueLock)
         {
+            minValueReached = true;
             randomMinimumValue = randomMinimumValueLock;
         }
     }
