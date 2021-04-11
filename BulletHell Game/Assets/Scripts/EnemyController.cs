@@ -5,12 +5,13 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     GameObject player;
-
+    GameObject manager;
     
     public int dmg;
     void Start()
     {
         player = GameObject.Find("Player");
+        manager = GameObject.Find("GameManager");
     }
     private void Update()
     {
@@ -38,6 +39,19 @@ public class EnemyController : MonoBehaviour
             if (this.tag == "Enemy" )
             {
                 other.GetComponent<PlayerController>().TakeDamage(dmg);
+            }
+
+            if (this.tag == "BlueEnemy" && other.GetComponent<PlayerController>().isBlue == true)
+            {
+                manager.GetComponent<ScoreSystem>().score += 10 * manager.GetComponent<ScoreSystem>().multiplier;
+            }
+            if (this.tag == "GreenEnemy" && other.GetComponent<PlayerController>().isGreen == true)
+            {
+                manager.GetComponent<ScoreSystem>().score += 10 * manager.GetComponent<ScoreSystem>().multiplier;
+            }
+            if (this.tag == "RedEnemy" && other.GetComponent<PlayerController>().isRed == true)
+            {
+                manager.GetComponent<ScoreSystem>().score += 10 * manager.GetComponent<ScoreSystem>().multiplier;
             }
         }
     }
