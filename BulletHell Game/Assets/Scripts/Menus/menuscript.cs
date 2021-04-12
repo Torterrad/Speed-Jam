@@ -69,12 +69,10 @@ public class menuscript : MonoBehaviour
     {
         score = GameHandler.GetComponent<ScoreSystem>().score;
         HUD.SetActive(false);
-
+        loseMenu.SetActive(true);
         Time.timeScale = 0;
 
         scoreText.text = score.ToString();
-
-        loseMenu.SetActive(true);
         //Play UI animation 
     }
 }
