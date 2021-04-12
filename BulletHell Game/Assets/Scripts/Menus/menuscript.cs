@@ -7,7 +7,7 @@ public class menuscript : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject HUD;
-    public static bool paused = false;
+    public bool paused = false;
 
     void Update()
     {

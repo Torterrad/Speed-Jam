@@ -89,6 +89,11 @@ public class PlayerController : MonoBehaviour
     {
         // mouseAim = cam.ScreenToWorldPoint(Input.mousePosition);
 
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            gameManager.GetComponent<TimeManager>().SlowMo();
+        }
+
         if (canMove)
         {
             horizontal = Input.GetAxisRaw("Horizontal");
@@ -312,6 +317,7 @@ public class PlayerController : MonoBehaviour
     {
         health -= damage;
         ScreenShakeController.instance.StartShake(.3f, 1f);
+        gameManager.GetComponent<TimeManager>().SlowMo();
     }
 
     private void OnTriggerExit2D(Collider2D other)

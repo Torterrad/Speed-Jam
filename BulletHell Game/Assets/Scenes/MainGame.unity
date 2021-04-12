@@ -4106,6 +4106,7 @@ GameObject:
   - component: {fileID: 2096972907}
   - component: {fileID: 2096972906}
   - component: {fileID: 2096972908}
+  - component: {fileID: 2096972909}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4227,6 +4228,20 @@ MonoBehaviour:
   maxScoreTime: 2
   scoreText: {fileID: 1896791395}
   multiplierText: {fileID: 474311634}
+--- !u!114 &2096972909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096972905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b68e531d80119479aedb88c4437a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowDownFactor: 0.3
+  slowDownLength: 3
 --- !u!1 &2139403249
 GameObject:
   m_ObjectHideFlags: 0
