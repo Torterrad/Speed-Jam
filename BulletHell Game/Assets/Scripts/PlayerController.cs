@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     //public Camera cam;
 
     Vector2 mouseAim;
-   
+
     float horizontal;
     float vertical;
 
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private int colourState = 1;
 
     public bool isRed = false;
-    public bool isBlue= false;
+    public bool isBlue = false;
     public bool isGreen = false;
 
     private Renderer rend;
@@ -45,27 +45,87 @@ public class PlayerController : MonoBehaviour
 
     public SpriteRenderer sRenderer;
     public float countDown = 1f;
-    public float minimumCountDown = 0f ;
+    public float minimumCountDown = 0f;
 
     public Animator nearMissText;
     public Animation anim;
+
+    public float scaleStart = 0.05f;
+    public float scaleOldX;
+    public float scaleOldY;
+    public float scaleNewX;
+    public float scaleNewY;
+    public float scaleRate = 0.0005f;
+    public float scaleMin = 0.04f;
+    public float scaleMax = 0.06f;
 
 
     void Start()
     {
         health = maxHealth;
-        rend = GetComponent<Renderer>();
+        //rend = GetComponent<Renderer>();
+        rend = sRenderer;
+        scaleOldX = scaleStart;
+        scaleOldY = scaleStart;
+        scaleNewX = scaleStart;
+        scaleNewY = scaleStart;
 
         trail = GetComponent<TrailRenderer>();
-        
+
     }
 
 
     void Update()
     {
-       // mouseAim = cam.ScreenToWorldPoint(Input.mousePosition);
+        // mouseAim = cam.ScreenToWorldPoint(Input.mousePosition);
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+
+        if (horizontal != 0)
+        {
+            if (scaleNewX <= scaleMax && scaleNewY >= scaleMin)
+            {
+                scaleNewX = scaleOldX + scaleRate;
+                scaleNewY = scaleOldY - scaleRate;
+                transform.localScale = new Vector3(scaleNewX, scaleNewY, 1f);
+            }
+            scaleOldX = scaleNewX;
+            scaleOldY = scaleNewY;
+        }
+        else
+        {
+            if (scaleNewX >= scaleStart && scaleNewY <= scaleStart)
+            {
+                scaleNewX = scaleOldX - scaleRate;
+                scaleNewY = scaleOldY + scaleRate;
+                transform.localScale = new Vector3(scaleNewX, scaleNewY, 1f);
+            }
+            scaleOldX = scaleNewX;
+            scaleOldY = scaleNewY;
+        }
+
+        if (vertical != 0)
+        {
+            if (scaleNewX >= scaleMin && scaleNewY <= scaleMax)
+            {
+                scaleNewX = scaleOldX - scaleRate;
+                scaleNewY = scaleOldY + scaleRate;
+                transform.localScale = new Vector3(scaleNewX, scaleNewY, 1f);
+            }
+            scaleOldX = scaleNewX;
+            scaleOldY = scaleNewY;
+        }
+        else
+        {
+            if (scaleNewX <= scaleStart && scaleNewY >= scaleStart)
+            {
+                scaleNewX = scaleOldX + scaleRate;
+                scaleNewY = scaleOldY - scaleRate;
+                transform.localScale = new Vector3(scaleNewX, scaleNewY, 1f);
+            }
+            scaleOldX = scaleNewX;
+            scaleOldY = scaleNewY;
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -98,7 +158,7 @@ public class PlayerController : MonoBehaviour
             redTrail.SetActive(true);
             greenTrail.SetActive(false);
             blueTrail.SetActive(false);
-           
+
         }
         if (colourState == 2)
         {
@@ -127,7 +187,7 @@ public class PlayerController : MonoBehaviour
             greenTrail.SetActive(true);
             blueTrail.SetActive(false);
         }
-        if(health<= 0)
+        if (health <= 0)
         {
             gameManager.GetComponent<SpawnEntity>().playerDead = true;
             if (isRed)
@@ -139,12 +199,12 @@ public class PlayerController : MonoBehaviour
                     GetComponent<SpriteRenderer>().enabled = false;
                     StartCoroutine(die());
                 }
-                if(countDown<= minimumCountDown)
+                if (countDown <= minimumCountDown)
                 {
                     redDeath.Stop();
                 }
 
-                
+
             }
             if (isGreen)
             {
@@ -192,9 +252,9 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = new Vector2(horizontal * speed, vertical * speed);
 
-       // float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
+        // float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
 
-       // rb.rotation = angle;
+        // rb.rotation = angle;
     }
 
     public void TakeDamage(float damage)
@@ -211,7 +271,7 @@ public class PlayerController : MonoBehaviour
             nearMissText.Play("FadeIn");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
-        if (other.tag == "RedCloseCall"&& this.isRed == false)
+        if (other.tag == "RedCloseCall" && this.isRed == false)
         {
             gameManager.GetComponent<ScoreSystem>().multiplier += 1;
             nearMissText.Play("FadeIn");
@@ -236,19 +296,19 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(redTrail);
             redDeath.Play();
-            
+
         }
         if (isGreen)
         {
             Destroy(greenTrail);
             greenDeath.Play();
-            
+
         }
         if (isBlue)
         {
             Destroy(blueTrail);
             blueDeath.Play();
-            
+
         }
         yield return new WaitForSeconds(duration);
 
