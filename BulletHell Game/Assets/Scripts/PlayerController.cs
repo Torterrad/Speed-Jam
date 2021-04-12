@@ -69,6 +69,8 @@ public class PlayerController : MonoBehaviour
     private float dashTimeLeft;
     private float lastDash = -100f;
 
+    public bool dead = false;
+
 
     void Start()
     {
@@ -172,7 +174,7 @@ public class PlayerController : MonoBehaviour
         }
         if (health <= 0)
         {
-            gameManager.GetComponent<SpawnEntity>().playerDead = true;
+            
             if (isRed)
             {
                 countDown -= Time.deltaTime;
@@ -375,6 +377,7 @@ public class PlayerController : MonoBehaviour
         greenDeath.Stop();
         blueDeath.Stop();
         redDeath.Stop();
+        gameManager.GetComponent<SpawnEntity>().playerDead = true;
         Destroy(gameObject);
 
     }

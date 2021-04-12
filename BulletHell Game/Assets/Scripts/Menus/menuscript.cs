@@ -2,11 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class menuscript : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject HUD;
+    public GameObject loseMenu;
+    public GameObject GameHandler;
+   
+    public Text scoreText;
+
+    public int score;
+
     public bool paused = false;
 
     void Update()
@@ -21,6 +30,11 @@ public class menuscript : MonoBehaviour
             {
                 Pause();
             }
+        }
+
+        if (GameHandler.GetComponent<SpawnEntity>().playerDead == true)
+        {
+            gameOver();
         }
     }
 
@@ -50,5 +64,17 @@ public class menuscript : MonoBehaviour
         pauseMenu.SetActive(true);
         HUD.SetActive(false);
         //Disable HUD
+    }
+    public void gameOver()
+    {
+        score = GameHandler.GetComponent<ScoreSystem>().score;
+        HUD.SetActive(false);
+
+        Time.timeScale = 0;
+
+        scoreText.text = score.ToString();
+
+        loseMenu.SetActive(true);
+        //Play UI animation 
     }
 }
