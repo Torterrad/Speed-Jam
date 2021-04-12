@@ -81,51 +81,7 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        if (horizontal != 0)
-        {
-            if (scaleNewX <= scaleMax && scaleNewY >= scaleMin)
-            {
-                scaleNewX = scaleOldX + scaleRate;
-                scaleNewY = scaleOldY - scaleRate;
-                transform.localScale = new Vector3(scaleNewX, scaleNewY, 1f);
-            }
-            scaleOldX = scaleNewX;
-            scaleOldY = scaleNewY;
-        }
-        else
-        {
-            if (scaleNewX >= scaleStart && scaleNewY <= scaleStart)
-            {
-                scaleNewX = scaleOldX - scaleRate;
-                scaleNewY = scaleOldY + scaleRate;
-                transform.localScale = new Vector3(scaleNewX, scaleNewY, 1f);
-            }
-            scaleOldX = scaleNewX;
-            scaleOldY = scaleNewY;
-        }
-
-        if (vertical != 0)
-        {
-            if (scaleNewX >= scaleMin && scaleNewY <= scaleMax)
-            {
-                scaleNewX = scaleOldX - scaleRate;
-                scaleNewY = scaleOldY + scaleRate;
-                transform.localScale = new Vector3(scaleNewX, scaleNewY, 1f);
-            }
-            scaleOldX = scaleNewX;
-            scaleOldY = scaleNewY;
-        }
-        else
-        {
-            if (scaleNewX <= scaleStart && scaleNewY >= scaleStart)
-            {
-                scaleNewX = scaleOldX + scaleRate;
-                scaleNewY = scaleOldY - scaleRate;
-                transform.localScale = new Vector3(scaleNewX, scaleNewY, 1f);
-            }
-            scaleOldX = scaleNewX;
-            scaleOldY = scaleNewY;
-        }
+        SquashAndStretch();
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -255,6 +211,51 @@ public class PlayerController : MonoBehaviour
         // float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
 
         // rb.rotation = angle;
+    }
+
+    public void SquashAndStretch()
+    {
+        if (horizontal != 0)
+        {
+            RescalePlayer(ref scaleNewX, scaleMax, ref scaleNewY, scaleMin, ref scaleOldX, ref scaleOldY);
+        }
+        else
+        {
+            RescalePlayer(ref scaleNewY, scaleStart, ref scaleNewX, scaleStart, ref scaleOldY, ref scaleOldX);
+        }
+
+        if (vertical != 0)
+        {
+            if (scaleNewY <= scaleMax && scaleNewX >= scaleMin)
+            {
+                scaleNewX = scaleOldX - scaleRate;
+                scaleNewY = scaleOldY + scaleRate;
+                transform.localScale = new Vector3(scaleNewX, scaleNewY, 1f);
+            }
+        }
+        else
+        {
+            if (scaleNewX <= scaleStart && scaleNewY >= scaleStart)
+            {
+                scaleNewX = scaleOldX + scaleRate;
+                scaleNewY = scaleOldY - scaleRate;
+                transform.localScale = new Vector3(scaleNewX, scaleNewY, 1f);
+            }
+        }
+        scaleOldX = scaleNewX;
+        scaleOldY = scaleNewY;
+    }
+
+    public void RescalePlayer(ref float scaleNewA, float scaleCapA, ref float scaleNewB, float scaleCapB, ref float scaleOldA, ref float scaleOldB)
+    {
+        if (scaleNewA <= scaleCapA && scaleNewB >= scaleCapB)
+        {
+            scaleNewA = scaleOldA + scaleRate;
+            scaleNewB = scaleOldB - scaleRate;
+            transform.localScale = new Vector3(scaleNewA, scaleNewB, 1f);
+        }
+        scaleOldA = scaleNewA;
+        scaleOldB = scaleNewB;
     }
 
     public void TakeDamage(float damage)
