@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
     public Animator nearMissText;
     public Animation anim;
 
+    //Variables for player squash and stretch.
     public float scaleStart = 0.05f;
     public float scaleOldX;
     public float scaleOldY;
@@ -58,6 +59,14 @@ public class PlayerController : MonoBehaviour
     public float scaleRate = 0.0005f;
     public float scaleMin = 0.04f;
     public float scaleMax = 0.06f;
+
+    //Variables for dash.
+    private bool isDashing;
+    public float dashTime = 0.2f;
+    public float dashSpeed = 12f;
+    public float dashCooldown = 1f;
+    private float dashTimeLeft;
+    private float lastDash = -100f;
 
 
     void Start()
@@ -82,6 +91,12 @@ public class PlayerController : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
 
         SquashAndStretch();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (Time.time >= (lastDash + dashCooldown))
+                AttemptToDash();
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -195,7 +210,7 @@ public class PlayerController : MonoBehaviour
             //gameObject.SetActive(false);
         }
 
-
+        CheckDash();
     }
     void FixedUpdate()
     {
@@ -211,6 +226,30 @@ public class PlayerController : MonoBehaviour
         // float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
 
         // rb.rotation = angle;
+    }
+
+    private void AttemptToDash()
+    {
+        isDashing = true;
+        dashTimeLeft = dashTime;
+        lastDash = Time.time;
+    }
+
+    private void CheckDash()
+    {
+        if (isDashing)
+        {
+            if (dashTimeLeft > 0)
+            {
+                rb.AddForce(rb.velocity * dashSpeed);
+                dashTimeLeft -= Time.deltaTime;
+            }
+
+            if (dashTimeLeft <= 0)
+            {
+                isDashing = false;
+            }
+        }
     }
 
     public void SquashAndStretch()
