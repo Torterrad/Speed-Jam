@@ -319,25 +319,25 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "CloseCall")
         {
             gameManager.GetComponent<ScoreSystem>().multiplier += 1;
-            nearMissText.Play("FadeIn");
+            nearMissText.SetTrigger("NearMissTrigger");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
         if (other.tag == "RedCloseCall" && this.isRed == false)
         {
             gameManager.GetComponent<ScoreSystem>().multiplier += 1;
-            nearMissText.Play("FadeIn");
+            nearMissText.SetTrigger("NearMissTrigger");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
         if (other.tag == "GreenCloseCall" && this.isGreen == false)
         {
             gameManager.GetComponent<ScoreSystem>().multiplier += 1;
-            nearMissText.Play("FadeIn");
+            nearMissText.SetTrigger("NearMissTrigger");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
         if (other.tag == "BlueCloseCall" && this.isBlue == false)
         {
             gameManager.GetComponent<ScoreSystem>().multiplier += 1;
-            nearMissText.Play("FadeIn");
+            nearMissText.SetTrigger("NearMissTrigger");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
     }
