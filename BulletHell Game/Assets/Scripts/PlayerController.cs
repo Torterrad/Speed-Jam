@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public float maxHealth;
 
     public float speed = 2f;
-    public float duration = 1f;
+    public float duration = .5f;
 
     public Rigidbody2D rb;
 
@@ -314,7 +314,7 @@ public class PlayerController : MonoBehaviour
         ScreenShakeController.instance.StartShake(.3f, 1f);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "CloseCall")
         {
@@ -340,7 +340,10 @@ public class PlayerController : MonoBehaviour
             nearMissText.SetTrigger("NearMissTrigger");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
+
+       
     }
+    
     IEnumerator die()
     {
         if (isRed)
