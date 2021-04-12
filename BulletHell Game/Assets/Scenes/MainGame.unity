@@ -1362,6 +1362,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2824249603581707291, guid: 49f2df9a25cba3a40a16b50a7804c063, type: 3}
   m_PrefabInstance: {fileID: 2824249604729220493}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1147840924 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2824249603581707284, guid: 49f2df9a25cba3a40a16b50a7804c063, type: 3}
+  m_PrefabInstance: {fileID: 2824249604729220493}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1312300236
 GameObject:
   m_ObjectHideFlags: 0
@@ -6734,6 +6739,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2824249603581707285, guid: 49f2df9a25cba3a40a16b50a7804c063, type: 3}
+      propertyPath: sRenderer
+      value: 
+      objectReference: {fileID: 1147840924}
     - target: {fileID: 2824249603581707285, guid: 49f2df9a25cba3a40a16b50a7804c063, type: 3}
       propertyPath: gameManager
       value: 
