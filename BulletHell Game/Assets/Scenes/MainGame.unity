@@ -6675,6 +6675,8 @@ MonoBehaviour:
   - {fileID: 7617593131756208848, guid: b119d43e409d2bd4f8f7b7694c1fc77d, type: 3}
   - {fileID: 7617593131756208848, guid: 125aa78e85333514b9104aa4130d16a6, type: 3}
   - {fileID: 7617593131756208848, guid: 71e03bae3d04ab24b95b5a29a7f4ced9, type: 3}
+  - {fileID: 7617593131756208848, guid: 3ebd4e5820d51c24fa335167bd4dc7c1, type: 3}
+  - {fileID: 7617593131756208848, guid: 7388866a7b8d8b348aa0827a5068e015, type: 3}
   countdown: 0
   maxCountDown: 2
   randomMinimumValue: 1
