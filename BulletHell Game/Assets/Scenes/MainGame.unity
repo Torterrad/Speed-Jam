@@ -419,23 +419,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2036636808524644168, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2036636808524644168, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3944879540487679727, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3944879540487679727, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3944879540487679727, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3944879540880987984, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_Pivot.x
@@ -529,13 +529,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3944879540941015430, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_margin.w
+      value: 20.156979
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944879540941015430, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_margin.y
+      value: 39.296032
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944879540941015431, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -556
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944879540941015431, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3944879541614234151, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3944879541614234151, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3944879542295283796, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -545,17 +561,29 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 3944879542295283797, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -147
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755493378024476574, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -555
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755493378024476574, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -58
+      objectReference: {fileID: 0}
     - target: {fileID: 9004293444296863472, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9004293444296863472, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9004293444296863472, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
@@ -3459,6 +3487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15a336171d41c54d8e5194cfc1c1a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 1541239591}
 --- !u!1 &1614254550
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,16 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class menuscript : MonoBehaviour
 {
-    bool paused;
+    public GameObject pauseMenu;
+    public static bool paused = false;
 
-    /*void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Pause();
+            if (paused)
+            {
+                resume();
+            }
+            else
+            {
+                Pause();
+            }
         }
     }
-    */
 
     public void Retry()
     {
@@ -26,9 +33,19 @@ public class menuscript : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    /*public void Pause()
+    public void resume()
     {
-        Time.timeScale = 0; //timescale 0 
+        paused = false;
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+        //Enable HUD
     }
-    */
+
+    public void Pause()
+    {
+        paused = true;
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+        //Disable HUD
+    }
 }
