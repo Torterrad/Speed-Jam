@@ -62,8 +62,9 @@ public class PlayerController : MonoBehaviour
 
     //Variables for dash.
     private bool isDashing;
+    private bool canMove = true;
     public float dashTime = 0.2f;
-    public float dashSpeed = 12f;
+    public float dashSpeed = 8f;
     public float dashCooldown = 1f;
     private float dashTimeLeft;
     private float lastDash = -100f;
@@ -87,15 +88,21 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // mouseAim = cam.ScreenToWorldPoint(Input.mousePosition);
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+
+        if (canMove)
+        {
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
+        }
 
         SquashAndStretch();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (Time.time >= (lastDash + dashCooldown))
+            {
                 AttemptToDash();
+            }
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -230,9 +237,12 @@ public class PlayerController : MonoBehaviour
 
     private void AttemptToDash()
     {
-        isDashing = true;
-        dashTimeLeft = dashTime;
-        lastDash = Time.time;
+        if (lastDash + dashCooldown < Time.time)
+        {
+            isDashing = true;
+            dashTimeLeft = dashTime;
+            lastDash = Time.time;
+        }
     }
 
     private void CheckDash()
@@ -241,13 +251,14 @@ public class PlayerController : MonoBehaviour
         {
             if (dashTimeLeft > 0)
             {
+                canMove = false;
                 rb.AddForce(rb.velocity * dashSpeed);
                 dashTimeLeft -= Time.deltaTime;
             }
-
-            if (dashTimeLeft <= 0)
+            else
             {
                 isDashing = false;
+                canMove = true;
             }
         }
     }
