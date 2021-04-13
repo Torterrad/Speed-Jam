@@ -72,15 +72,16 @@ public class menuscript : MonoBehaviour
     }
     public void gameOver()
     {
-        ScreenShakeController.instance.StartShake(0f, 1f);
         score = GameHandler.GetComponent<ScoreSystem>().score;
+        scoreText.text = "Score: " + score.ToString();
+
+        ScreenShakeController.instance.StartShake(0f, 1f);
 
         HUD.SetActive(false);
         loseMenu.SetActive(true);
         Time.timeScale = 0;
 
         player.GetComponent<Canvas>().enabled = false;
-        scoreText.text = "Score: " + score.ToString();
 
         loseMenu.GetComponent<Animator>().Play("LossAnim");
         //Play UI animation 
