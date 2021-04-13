@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     public float minimumCountDown = 0f;
 
     public Animator nearMissText;
+    public Animator multiplierText;
     public Animation anim;
 
     //Variables for player squash and stretch.
@@ -352,24 +353,28 @@ public class PlayerController : MonoBehaviour
         {
             gameManager.GetComponent<ScoreSystem>().multiplier += 1;
             nearMissText.SetTrigger("NearMissTrigger");
+            multiplierText.SetTrigger("MultiplierTextPopTrigger");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
         if (other.tag == "RedCloseCall" && this.isRed == false)
         {
             gameManager.GetComponent<ScoreSystem>().multiplier += 1;
             nearMissText.SetTrigger("NearMissTrigger");
+            multiplierText.SetTrigger("MultiplierTextPopTrigger");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
         if (other.tag == "GreenCloseCall" && this.isGreen == false)
         {
             gameManager.GetComponent<ScoreSystem>().multiplier += 1;
             nearMissText.SetTrigger("NearMissTrigger");
+            multiplierText.SetTrigger("MultiplierTextPopTrigger");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
         if (other.tag == "BlueCloseCall" && this.isBlue == false)
         {
             gameManager.GetComponent<ScoreSystem>().multiplier += 1;
             nearMissText.SetTrigger("NearMissTrigger");
+            multiplierText.SetTrigger("MultiplierTextPopTrigger");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
 
