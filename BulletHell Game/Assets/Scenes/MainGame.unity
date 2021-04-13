@@ -1164,6 +1164,7 @@ GameObject:
   - component: {fileID: 474311633}
   - component: {fileID: 474311635}
   - component: {fileID: 474311634}
+  - component: {fileID: 474311636}
   m_Layer: 5
   m_Name: MultiplierText
   m_TagString: Untagged
@@ -1187,8 +1188,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 171, y: -128}
-  m_SizeDelta: {x: 232.8195, y: 52.1624}
+  m_AnchoredPosition: {x: 167.53003, y: -167.29999}
+  m_SizeDelta: {x: 335.05, y: 130.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &474311634
 MonoBehaviour:
@@ -1212,11 +1213,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
-    m_FontSize: 32
+    m_FontSize: 128
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 128
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1232,6 +1233,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474311632}
   m_CullTransparentMesh: 1
+--- !u!95 &474311636
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474311632}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3828ba31d00372b458b807d7392ba307, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &486391756
 GameObject:
   m_ObjectHideFlags: 0
@@ -4971,6 +4991,10 @@ PrefabInstance:
       propertyPath: maxGravAmount
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2824249603581707285, guid: 49f2df9a25cba3a40a16b50a7804c063, type: 3}
+      propertyPath: multiplierText
+      value: 
+      objectReference: {fileID: 474311636}
     - target: {fileID: 2824249603581707287, guid: 49f2df9a25cba3a40a16b50a7804c063, type: 3}
       propertyPath: m_RootOrder
       value: 2
