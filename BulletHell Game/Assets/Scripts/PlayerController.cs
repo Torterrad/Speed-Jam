@@ -79,6 +79,14 @@ public class PlayerController : MonoBehaviour
 
     public ProgressBar gravSlider;
 
+    public GameObject redRight;
+    public GameObject redLeft;
+    public GameObject greenRight;
+    public GameObject greenLeft;
+    public GameObject blueRight;
+    public GameObject blueLeft;
+
+
 
 
     void Start()
@@ -167,12 +175,21 @@ public class PlayerController : MonoBehaviour
             trail.startColor = Color.red;
             trail.endColor = Color.red;
 
+            greenRight.SetActive(true);
+            blueLeft.SetActive(true);
+            redLeft.SetActive(false);
+            redRight.SetActive(false);
+            greenLeft.SetActive(false);
+            blueRight.SetActive(false);
+
             turnTo = Color.red;
             rend.material.color = turnTo;
 
             redTrail.SetActive(true);
             greenTrail.SetActive(false);
             blueTrail.SetActive(false);
+
+            
 
         }
         if (colourState == 2)
@@ -184,6 +201,13 @@ public class PlayerController : MonoBehaviour
             trail.endColor = Color.blue;
             turnTo = Color.blue;
             rend.material.color = turnTo;
+
+            greenRight.SetActive(false);
+            blueLeft.SetActive(false);
+            redLeft.SetActive(false);
+            redRight.SetActive(true);
+            greenLeft.SetActive(true);
+            blueRight.SetActive(false);
 
             redTrail.SetActive(false);
             greenTrail.SetActive(false);
@@ -198,6 +222,14 @@ public class PlayerController : MonoBehaviour
             trail.startColor = Color.green;
             trail.endColor = Color.green;
             rend.material.color = turnTo;
+
+            greenRight.SetActive(false);
+            blueLeft.SetActive(false);
+            redLeft.SetActive(true);
+            redRight.SetActive(false);
+            greenLeft.SetActive(false);
+            blueRight.SetActive(true);
+
             redTrail.SetActive(false);
             greenTrail.SetActive(true);
             blueTrail.SetActive(false);
