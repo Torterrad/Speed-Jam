@@ -34,6 +34,7 @@ public class SpawnEntity : MonoBehaviour
     private void Start()
     {
         maxCountDown = Random.Range(randomMinimumValue,randomMaximumValue);
+        Time.timeScale = 1f;
     }
     private void Update()
     {
