@@ -5289,7 +5289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowDownFactor: 0.3
-  slowDownLength: 3
+  slowDownLength: 1
   menuController: {fileID: 1588339643}
 --- !u!1 &2107919525
 GameObject:

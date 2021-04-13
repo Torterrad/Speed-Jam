@@ -86,6 +86,9 @@ public class PlayerController : MonoBehaviour
     public GameObject blueRight;
     public GameObject blueLeft;
 
+    private float timer;
+    public float maxTimer;
+
 
 
 
@@ -106,13 +109,21 @@ public class PlayerController : MonoBehaviour
         gravSlider.setMaxGravAmount(maxGravAmount);
 
         startSpeed = speed;
-
+        timer = maxTimer;
     }
 
 
     void Update()
     {
-        // mouseAim = cam.ScreenToWorldPoint(Input.mousePosition);
+        timer += Time.deltaTime;
+       
+
+
+        if (timer >= 2)
+        {
+            gravAmount += 0.05f;
+            timer = 0;
+        }
 
         if (Input.GetKey(KeyCode.LeftShift) && gravAmount > 0)
         {
