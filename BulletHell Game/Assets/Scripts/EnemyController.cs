@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
     
     public int dmg;
 
+    public int matchColourBonus;
+
     public ParticleSystem passThrough;
     void Start()
     {
@@ -43,23 +45,34 @@ public class EnemyController : MonoBehaviour
                 other.GetComponent<PlayerController>().TakeDamage(dmg);
             }
 
+            matchColourBonus = 10 * manager.GetComponent<ScoreSystem>().multiplier;
+
             if (this.tag == "BlueEnemy" && other.GetComponent<PlayerController>().isBlue == true)
             {
                 ScreenShakeController.instance.StartShake(.2f, .25f);
-                manager.GetComponent<ScoreSystem>().score += 10 * manager.GetComponent<ScoreSystem>().multiplier;
+                manager.GetComponent<ScoreSystem>().score += matchColourBonus;
                 //other.GetComponent<PlayerController>().gravAmount += other.GetComponent<PlayerController>().gravIncrease;
+
+                other.GetComponent<PlayerController>().matchScoreTextString.text = "+" + matchColourBonus.ToString();
+                other.GetComponent<PlayerController>().matchScoreText.SetTrigger("NearMissTrigger");
             }
             if (this.tag == "GreenEnemy" && other.GetComponent<PlayerController>().isGreen == true)
             {
                 ScreenShakeController.instance.StartShake(.2f, .25f);
-                manager.GetComponent<ScoreSystem>().score += 10 * manager.GetComponent<ScoreSystem>().multiplier;
+                manager.GetComponent<ScoreSystem>().score += matchColourBonus;
                 //other.GetComponent<PlayerController>().gravAmount += other.GetComponent<PlayerController>().gravIncrease;
+
+                other.GetComponent<PlayerController>().matchScoreTextString.text = "+" + matchColourBonus.ToString();
+                other.GetComponent<PlayerController>().matchScoreText.SetTrigger("NearMissTrigger");
             }
             if (this.tag == "RedEnemy" && other.GetComponent<PlayerController>().isRed == true)
             {
                 ScreenShakeController.instance.StartShake(.2f, .25f);
-                manager.GetComponent<ScoreSystem>().score += 10 * manager.GetComponent<ScoreSystem>().multiplier;
+                manager.GetComponent<ScoreSystem>().score += matchColourBonus;
                 //other.GetComponent<PlayerController>().gravAmount += other.GetComponent<PlayerController>().gravIncrease;
+
+                other.GetComponent<PlayerController>().matchScoreTextString.text = "+" + matchColourBonus.ToString();
+                other.GetComponent<PlayerController>().matchScoreText.SetTrigger("NearMissTrigger");
             }
         }
         

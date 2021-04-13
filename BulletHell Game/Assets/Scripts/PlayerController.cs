@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+using TMPro;//For the TextMeshProGUI variable.
+
 public class PlayerController : MonoBehaviour
 {
 
@@ -49,6 +52,8 @@ public class PlayerController : MonoBehaviour
     public float minimumCountDown = 0f;
 
     public Animator nearMissText;
+    public Animator matchScoreText;
+    public TextMeshPro matchScoreTextString;
     public Animator multiplierText;
     public Animation anim;
 
