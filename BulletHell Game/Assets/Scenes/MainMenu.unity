@@ -1439,6 +1439,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359111047}
   m_CullTransparentMesh: 1
+--- !u!114 &1473077663 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3944879540612647127, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+  m_PrefabInstance: {fileID: 8722523670267879649}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1573956770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,7 +1551,7 @@ AudioSource:
   m_GameObject: {fileID: 1575163025}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 3954c384d7b677a43a9a481b12197a56, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5797844cf166b2f47b772417fa6bb382, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
@@ -2249,9 +2260,25 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3944879540612647127, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944879540612647129, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_Name
+      value: volSlider
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944879540612647129, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944879540880987983, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: volumeSlider
+      value: 
+      objectReference: {fileID: 1473077663}
     - target: {fileID: 3944879540880987984, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3944879540880987985, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_IsActive
