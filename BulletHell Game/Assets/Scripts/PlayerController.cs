@@ -91,6 +91,8 @@ public class PlayerController : MonoBehaviour
     public GameObject blueRight;
     public GameObject blueLeft;
 
+    public GameObject canvas;
+
     private float timer;
     public float maxTimer;
 
@@ -399,8 +401,10 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        canvas.SetActive(false);
         ScreenShakeController.instance.StartShake(.3f, 1f);
         gameManager.GetComponent<TimeManager>().SlowMo();
+       
     }
 
     private void OnTriggerExit2D(Collider2D other)
