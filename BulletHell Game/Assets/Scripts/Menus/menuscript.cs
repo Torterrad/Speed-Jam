@@ -11,6 +11,7 @@ public class menuscript : MonoBehaviour
     public GameObject HUD;
     public GameObject loseMenu;
     public GameObject GameHandler;
+    public GameObject player;
    
     public Text scoreText;
 
@@ -71,10 +72,12 @@ public class menuscript : MonoBehaviour
     {
         ScreenShakeController.instance.StartShake(0f, 1f);
         score = GameHandler.GetComponent<ScoreSystem>().score;
+
         HUD.SetActive(false);
         loseMenu.SetActive(true);
         Time.timeScale = 0;
 
+        player.GetComponent<Canvas>().enabled = false;
         scoreText.text = "Score: " + score.ToString();
 
         loseMenu.GetComponent<Animator>().Play("LossAnim");

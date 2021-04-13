@@ -4337,6 +4337,7 @@ MonoBehaviour:
   HUD: {fileID: 1287054233}
   loseMenu: {fileID: 85192152}
   GameHandler: {fileID: 2096972905}
+  player: {fileID: 1147840918}
   scoreText: {fileID: 1714368568}
   score: 0
   paused: 0
@@ -5902,6 +5903,10 @@ PrefabInstance:
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
       value: 0.197063
       objectReference: {fileID: 0}
+    - target: {fileID: 2824249605171143019, guid: 49f2df9a25cba3a40a16b50a7804c063, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6973883723175556723, guid: 49f2df9a25cba3a40a16b50a7804c063, type: 3}
       propertyPath: m_fontColor.a
       value: 1
@@ -5922,6 +5927,10 @@ PrefabInstance:
     - target: {fileID: 2044536309216182540, guid: eb14bab9b4b413241b85f1d4749f5381, type: 3}
       propertyPath: m_Name
       value: NearMissPop
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044536309216182540, guid: eb14bab9b4b413241b85f1d4749f5381, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2777866421199347883, guid: eb14bab9b4b413241b85f1d4749f5381, type: 3}
       propertyPath: m_Pivot.x
