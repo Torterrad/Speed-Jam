@@ -69,6 +69,7 @@ public class menuscript : MonoBehaviour
     }
     public void gameOver()
     {
+        ScreenShakeController.instance.StartShake(0f, 1f);
         score = GameHandler.GetComponent<ScoreSystem>().score;
         HUD.SetActive(false);
         loseMenu.SetActive(true);
