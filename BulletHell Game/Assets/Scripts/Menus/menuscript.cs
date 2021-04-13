@@ -20,7 +20,7 @@ public class menuscript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && (GameHandler.GetComponent<SpawnEntity>().playerDead == false))
         {
             if (paused)
             {
