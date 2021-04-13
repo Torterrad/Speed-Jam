@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
@@ -71,6 +71,13 @@ public class PlayerController : MonoBehaviour
 
     public bool dead = false;
 
+    public float gravAmount;
+    public float maxGravAmount;
+    public float gravIncrease;
+
+    public ProgressBar gravSlider;
+    
+
 
     void Start()
     {
@@ -84,6 +91,10 @@ public class PlayerController : MonoBehaviour
 
         trail = GetComponent<TrailRenderer>();
 
+        
+        gravAmount = maxGravAmount;
+        gravSlider.setMaxGravAmount(maxGravAmount);
+
     }
 
 
@@ -91,11 +102,24 @@ public class PlayerController : MonoBehaviour
     {
         // mouseAim = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if(Input.GetKey(KeyCode.LeftShift))
+        if(Input.GetKey(KeyCode.LeftShift)&& gravAmount > 0)
         {
             gameManager.GetComponent<TimeManager>().SlowMo();
+            gravAmount -= 2 * Time.deltaTime;
+        }
+        if(gravAmount < maxGravAmount)
+        {
+            gravSlider.SetGravAmount(gravAmount);
+        }
+        if (gravAmount <= 0)
+        {
+            gravAmount = 0;
         }
 
+        if(gravAmount >= maxGravAmount)
+        {
+            gravAmount = maxGravAmount;
+        }
         if (canMove)
         {
             horizontal = Input.GetAxisRaw("Horizontal");
