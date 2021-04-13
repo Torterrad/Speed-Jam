@@ -10,6 +10,7 @@ public class menuscript : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject HUD;
     public GameObject loseMenu;
+    public GameObject OptionsMenu;
     public GameObject GameHandler;
     public GameObject player;
    
@@ -55,6 +56,7 @@ public class menuscript : MonoBehaviour
         paused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
+        OptionsMenu.SetActive(false);
         HUD.SetActive(true);
         //Enable HUD
     }

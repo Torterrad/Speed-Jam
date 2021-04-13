@@ -4336,6 +4336,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1541239591}
   HUD: {fileID: 1287054233}
   loseMenu: {fileID: 85192152}
+  OptionsMenu: {fileID: 256888296}
   GameHandler: {fileID: 2096972905}
   player: {fileID: 1147840918}
   scoreText: {fileID: 1714368568}
