@@ -9,6 +9,10 @@ public class MainMenu : MonoBehaviour
 
     public float transitionTime;
 
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
     public void Play()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
