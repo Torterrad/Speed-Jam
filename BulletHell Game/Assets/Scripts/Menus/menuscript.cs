@@ -65,6 +65,7 @@ public class menuscript : MonoBehaviour
         pauseMenu.SetActive(true);
         HUD.SetActive(false);
         //Disable HUD
+        pauseMenu.GetComponent<Animator>().Play("PauseAnim");
     }
     public void gameOver()
     {
@@ -74,6 +75,8 @@ public class menuscript : MonoBehaviour
         Time.timeScale = 0;
 
         scoreText.text = "Score: " + score.ToString();
+
+        loseMenu.GetComponent<Animator>().Play("LossAnim");
         //Play UI animation 
     }
 }
