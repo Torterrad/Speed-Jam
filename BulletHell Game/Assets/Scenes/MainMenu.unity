@@ -2262,7 +2262,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3944879540612647127, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_Value
-      value: 0
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944879540612647127, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944879540612647127, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944879540612647127, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: 37e1281001e7df24b98d6d5c71a913a6, type: 3}
+    - target: {fileID: 3944879540612647127, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944879540612647127, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944879540612647127, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: OptionsScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944879540612647127, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3944879540612647129, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_Name

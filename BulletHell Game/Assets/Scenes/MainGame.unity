@@ -664,6 +664,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 3944879540612647127, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
+      propertyPath: m_Value
+      value: -40
+      objectReference: {fileID: 0}
     - target: {fileID: 3944879540612647129, guid: dd89d37dc023f5a40bd32c18d0b933e0, type: 3}
       propertyPath: m_Name
       value: volSlider

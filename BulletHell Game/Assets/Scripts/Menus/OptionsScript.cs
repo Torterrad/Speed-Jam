@@ -7,20 +7,21 @@ using UnityEngine.UI;
 
 public class OptionsScript : MonoBehaviour
 {
-    public PostProcessVolume volume;
+    //public PostProcessVolume volume;
+
     public AudioMixer audioMixer;
     public Slider volumeSlider;
 
-    //private CGM cgm;
+    public float VolumeValue;
 
     void Start()
     {
-        //volume.profile.TryGetSettings(out cgm);
+        volumeSlider.value = PlayerPrefs.GetFloat("GameVolume", -40f);
     }
     public void Volume(float vol)
     {
         audioMixer.SetFloat("Volume", vol);
-        volumeSlider.value = vol;
+            PlayerPrefs.SetFloat("GameVolume", vol);
     }
 
    // public void Brightness(float brightness)
