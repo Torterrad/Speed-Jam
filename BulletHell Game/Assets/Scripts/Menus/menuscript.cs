@@ -73,7 +73,7 @@ public class menuscript : MonoBehaviour
         loseMenu.SetActive(true);
         Time.timeScale = 0;
 
-        scoreText.text = score.ToString();
+        scoreText.text = "Score: " + score.ToString();
         //Play UI animation 
     }
 }
