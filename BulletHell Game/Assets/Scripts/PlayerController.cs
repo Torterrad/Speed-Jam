@@ -124,9 +124,9 @@ public class PlayerController : MonoBehaviour
        
 
 
-        if (timer >= 2)
+        if (timer >= 1)
         {
-            gravAmount += 0.05f;
+            gravAmount += 0.025f;
             timer = 0;
         }
 
