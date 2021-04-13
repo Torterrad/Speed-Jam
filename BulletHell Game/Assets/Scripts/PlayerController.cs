@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float maxHealth;
 
     public float speed = 2f;
+    public float startSpeed;
     public float duration = .5f;
 
     public Rigidbody2D rb;
@@ -77,7 +78,7 @@ public class PlayerController : MonoBehaviour
     public float gravIncrease;
 
     public ProgressBar gravSlider;
-    
+
 
 
     void Start()
@@ -92,9 +93,11 @@ public class PlayerController : MonoBehaviour
 
         trail = GetComponent<TrailRenderer>();
 
-        
+
         gravAmount = maxGravAmount;
         gravSlider.setMaxGravAmount(maxGravAmount);
+
+        startSpeed = speed;
 
     }
 
@@ -103,12 +106,12 @@ public class PlayerController : MonoBehaviour
     {
         // mouseAim = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if(Input.GetKey(KeyCode.LeftShift)&& gravAmount > 0)
+        if (Input.GetKey(KeyCode.LeftShift) && gravAmount > 0)
         {
             gameManager.GetComponent<TimeManager>().SlowMo();
             gravAmount -= 2 * Time.deltaTime;
         }
-        if(gravAmount < maxGravAmount)
+        if (gravAmount < maxGravAmount)
         {
             gravSlider.SetGravAmount(gravAmount);
         }
@@ -117,7 +120,7 @@ public class PlayerController : MonoBehaviour
             gravAmount = 0;
         }
 
-        if(gravAmount >= maxGravAmount)
+        if (gravAmount >= maxGravAmount)
         {
             gravAmount = maxGravAmount;
         }
@@ -131,8 +134,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("1. Space pressed");
             if (Time.time >= (lastDash + dashCooldown))
             {
+                Debug.Log("2. Time.time >= (lastDash + dashCooldown)");
                 AttemptToDash();
             }
         }
@@ -199,7 +204,7 @@ public class PlayerController : MonoBehaviour
         }
         if (health <= 0)
         {
-            
+
             if (isRed)
             {
                 countDown -= Time.deltaTime;
@@ -271,6 +276,7 @@ public class PlayerController : MonoBehaviour
     {
         if (lastDash + dashCooldown < Time.time)
         {
+            Debug.Log("3. lastDash + dashCooldown < Time.time");
             isDashing = true;
             dashTimeLeft = dashTime;
             lastDash = Time.time;
@@ -284,11 +290,13 @@ public class PlayerController : MonoBehaviour
             if (dashTimeLeft > 0)
             {
                 canMove = false;
-                rb.AddForce(rb.velocity * dashSpeed);
+                //rb.AddForce(rb.velocity * dashSpeed);
+                speed = dashSpeed;
                 dashTimeLeft -= Time.deltaTime;
             }
             else
             {
+                speed = startSpeed;
                 isDashing = false;
                 canMove = true;
             }
@@ -378,9 +386,9 @@ public class PlayerController : MonoBehaviour
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
         }
 
-       
+
     }
-    
+
     IEnumerator die()
     {
         if (isRed)

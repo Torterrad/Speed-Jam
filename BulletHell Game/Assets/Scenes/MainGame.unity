@@ -4783,7 +4783,7 @@ MonoBehaviour:
   timer: 0
   timeInterval: 5
   playerSpeedIncrease: 0.1
-  maxPlayerSpeed: 10
+  maxPlayerSpeed: 100
   player: {fileID: 1147840918}
   playerDead: 0
 --- !u!4 &2096972907
@@ -5033,7 +5033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2824249603581707285, guid: 49f2df9a25cba3a40a16b50a7804c063, type: 3}
       propertyPath: dashSpeed
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2824249603581707285, guid: 49f2df9a25cba3a40a16b50a7804c063, type: 3}
       propertyPath: sRenderer
