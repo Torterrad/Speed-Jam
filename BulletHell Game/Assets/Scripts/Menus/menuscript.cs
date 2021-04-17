@@ -20,6 +20,9 @@ public class menuscript : MonoBehaviour
 
     public bool paused = false;
 
+    public AudioSource click;
+
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && (GameHandler.GetComponent<SpawnEntity>().playerDead == false))
@@ -27,6 +30,7 @@ public class menuscript : MonoBehaviour
             if (paused)
             {
                 resume();
+
             }
             else
             {
@@ -43,12 +47,14 @@ public class menuscript : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene("MainGame");
+        click.Play();
     }
 
     public void MainMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+        click.Play();
     }
 
     public void resume()
@@ -58,6 +64,7 @@ public class menuscript : MonoBehaviour
         pauseMenu.SetActive(false);
         OptionsMenu.SetActive(false);
         HUD.SetActive(true);
+        click.Play();
         //Enable HUD
     }
 
@@ -69,6 +76,7 @@ public class menuscript : MonoBehaviour
         HUD.SetActive(false);
         //Disable HUD
         pauseMenu.GetComponent<Animator>().Play("PauseAnim");
+        click.Play();
     }
     public void gameOver()
     {

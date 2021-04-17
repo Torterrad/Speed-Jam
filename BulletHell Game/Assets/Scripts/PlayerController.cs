@@ -96,8 +96,15 @@ public class PlayerController : MonoBehaviour
     private float timer;
     public float maxTimer;
 
+    public AudioSource Slow;
+    public AudioSource SpeedUp;
+    public AudioSource Death;
+    public AudioSource Close;
+    
 
+    public float volume = 0.5f;
 
+    public bool played  = false;
 
     void Start()
     {
@@ -119,6 +126,11 @@ public class PlayerController : MonoBehaviour
         timer = maxTimer;
     }
 
+    void playSpeedUp() 
+    {
+       
+    }
+
 
     void Update()
     {
@@ -131,11 +143,16 @@ public class PlayerController : MonoBehaviour
             gravAmount += 0.025f;
             timer = 0;
         }
-
         if (Input.GetKey(KeyCode.LeftShift) && gravAmount > 0)
         {
             gameManager.GetComponent<TimeManager>().SlowMo();
             gravAmount -= 2 * Time.deltaTime;
+
+            //SpeedUp.PlayOneShot(SpeedUp.clip, volume);
+            // Slow.PlayOneShot(Slow.clip, volume);
+            
+            
+           
         }
         if (gravAmount < maxGravAmount)
         {
@@ -155,6 +172,19 @@ public class PlayerController : MonoBehaviour
             horizontal = Input.GetAxisRaw("Horizontal");
             vertical = Input.GetAxisRaw("Vertical");
         }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            played = true;
+
+            
+        }
+
+        if( played == true) 
+        {
+            SpeedUp.PlayOneShot(SpeedUp.clip, volume);
+            played = false;
+        }
+
 
         SquashAndStretch();
 
@@ -404,7 +434,7 @@ public class PlayerController : MonoBehaviour
         canvas.SetActive(false);
         ScreenShakeController.instance.StartShake(.3f, 1f);
         gameManager.GetComponent<TimeManager>().SlowMo();
-       
+        Death.Play();
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -415,6 +445,7 @@ public class PlayerController : MonoBehaviour
             nearMissText.SetTrigger("NearMissTrigger");
             multiplierText.SetTrigger("MultiplierTextPopTrigger");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
+            Close.Play();
         }
         if (other.tag == "RedCloseCall" && this.isRed == false)
         {
@@ -422,6 +453,7 @@ public class PlayerController : MonoBehaviour
             nearMissText.SetTrigger("NearMissTrigger");
             multiplierText.SetTrigger("MultiplierTextPopTrigger");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
+            Close.Play();
         }
         if (other.tag == "GreenCloseCall" && this.isGreen == false)
         {
@@ -429,6 +461,7 @@ public class PlayerController : MonoBehaviour
             nearMissText.SetTrigger("NearMissTrigger");
             multiplierText.SetTrigger("MultiplierTextPopTrigger");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
+            Close.Play();
         }
         if (other.tag == "BlueCloseCall" && this.isBlue == false)
         {
@@ -436,6 +469,7 @@ public class PlayerController : MonoBehaviour
             nearMissText.SetTrigger("NearMissTrigger");
             multiplierText.SetTrigger("MultiplierTextPopTrigger");
             gameManager.GetComponent<ScoreSystem>().multiplierTime = gameManager.GetComponent<ScoreSystem>().maxMultiplierTime;
+            Close.Play();
         }
 
 
@@ -470,4 +504,7 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
 
     }
+
+    
+    
 }

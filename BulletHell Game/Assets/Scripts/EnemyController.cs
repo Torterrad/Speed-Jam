@@ -6,12 +6,14 @@ public class EnemyController : MonoBehaviour
 {
     GameObject player;
     GameObject manager;
+
     
     public int dmg;
 
     public int matchColourBonus;
 
     public ParticleSystem passThrough;
+    public AudioSource Enter;
     void Start()
     {
         player = GameObject.Find("Player");
@@ -46,6 +48,7 @@ public class EnemyController : MonoBehaviour
             }
 
             matchColourBonus = 10 * manager.GetComponent<ScoreSystem>().multiplier;
+            
 
             if (this.tag == "BlueEnemy" && other.GetComponent<PlayerController>().isBlue == true)
             {
@@ -55,6 +58,7 @@ public class EnemyController : MonoBehaviour
 
                 other.GetComponent<PlayerController>().matchScoreTextString.text = "+" + matchColourBonus.ToString();
                 other.GetComponent<PlayerController>().matchScoreText.SetTrigger("NearMissTrigger");
+                
             }
             if (this.tag == "GreenEnemy" && other.GetComponent<PlayerController>().isGreen == true)
             {
@@ -64,6 +68,7 @@ public class EnemyController : MonoBehaviour
 
                 other.GetComponent<PlayerController>().matchScoreTextString.text = "+" + matchColourBonus.ToString();
                 other.GetComponent<PlayerController>().matchScoreText.SetTrigger("NearMissTrigger");
+                
             }
             if (this.tag == "RedEnemy" && other.GetComponent<PlayerController>().isRed == true)
             {
@@ -73,7 +78,9 @@ public class EnemyController : MonoBehaviour
 
                 other.GetComponent<PlayerController>().matchScoreTextString.text = "+" + matchColourBonus.ToString();
                 other.GetComponent<PlayerController>().matchScoreText.SetTrigger("NearMissTrigger");
+                
             }
+            Enter.Play();
         }
         
     }
